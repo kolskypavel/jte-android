@@ -35,7 +35,7 @@ public class DirectoryCodeResolver implements CodeResolver {
         Path file = root.resolve(name);
 
         try {
-              byte[] fileBytes = Files.readAllBytes(path); // Read the file's bytes
+            byte[] fileBytes = Files.readAllBytes(file); // Read the file's bytes
             return new String(fileBytes, StandardCharsets.UTF_8); // Convert to String
         } catch (NoSuchFileException e) {
             throw new TemplateNotFoundException(name + " not found (tried to load file at " + file.toAbsolutePath() + ")");
