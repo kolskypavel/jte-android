@@ -4,7 +4,7 @@
 
     <groupId>gg.jte</groupId>
     <artifactId>jte-runtime-test-kotlin</artifactId>
-    <version>3.1.16-SNAPSHOT</version>
+    <version>3.1.17-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -14,14 +14,13 @@
         <maven.deploy.skip>true</maven.deploy.skip>
         <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
         <jacoco.version>0.8.10</jacoco.version>
-        <kotlin.version>1.9.10</kotlin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte-runtime</artifactId>
-            <version>3.1.16-SNAPSHOT</version>
+            <version>3.1.17-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -69,6 +68,22 @@
                 </plugins>
             </build>
         </profile>
+        <!-- Kotlin versions -->
+        <profile>
+            <id>kotlin-1.9</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <kotlin.version>1.9.10</kotlin.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>kotlin-2.0</id>
+            <properties>
+                <kotlin.version>2.0.20</kotlin.version>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
@@ -90,7 +105,7 @@
             <plugin>
                 <groupId>gg.jte</groupId>
                 <artifactId>jte-maven-plugin</artifactId>
-                <version>3.1.16-SNAPSHOT</version>
+                <version>3.1.17-SNAPSHOT</version>
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/jte</sourceDirectory>
                     <targetDirectory>${basedir}/jte-classes</targetDirectory>
