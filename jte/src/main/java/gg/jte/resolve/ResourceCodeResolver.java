@@ -32,7 +32,7 @@ public class ResourceCodeResolver implements CodeResolver {
 
     @Override
     public String resolve(String name) {
-        try (InputStream is = getClassLoader().getResourceAsStream(root + name)) {
+        try (InputStream is = getClass().getResourceAsStream(root + name)) {
             if (is == null) {
                 return null;
             }
@@ -44,7 +44,7 @@ public class ResourceCodeResolver implements CodeResolver {
 
     @Override
     public boolean exists(String name) {
-        return getClassLoader().getResource(root + name) != null;
+        return getClass().getResource(root + name) != null;
     }
 
     @Override
